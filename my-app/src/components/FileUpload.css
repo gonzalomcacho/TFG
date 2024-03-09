@@ -1,0 +1,68 @@
+.FileUpload-container {
+    text-align: center;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.9); /* semi-transparent white */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
+    backdrop-filter: blur(5px); /* frosted glass effect */
+    margin: 1rem auto;
+    width: 80%;
+    max-width: 600px;
+  }
+  
+  .FileUpload-instructions {
+    margin-bottom: 1rem;
+  }
+  
+  .FileUpload-instructions h2 {
+    color: #4657b8; /* color that complements the background */
+    margin-bottom: 0.5rem;
+  }
+  
+  .FileUpload-instructions p {
+    color: #17252a; /* dark text for readability */
+    font-size: 1rem;
+  }
+  
+  .FileUpload-input {
+    position: relative;
+  }
+  
+  .FileUpload-label {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #4657b8; /* complementary blue */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .FileUpload-label:hover {
+    background-color: #2f6cc0;
+  }
+  
+  .FileUpload-feedback {
+    margin-top: 1rem;
+    color: #17252a; /* dark text for visibility */
+    font-style: italic;
+  }
+
+  .FileUpload-analyze-button {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    background-color: #4CAF50; /* green background for the analyze button */
+    color: #ffffff; /* white text for contrast */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 1rem; /* adds space between the file selection feedback and the button */
+  }
+  
+  .FileUpload-analyze-button:hover {
+    background-color: #45a049; /* darker green on hover */
+  }
+  
