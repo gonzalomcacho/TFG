@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-import './HomePageScreen.css';
 
 export default function HomePageScreen() {
 
@@ -7,12 +6,12 @@ export default function HomePageScreen() {
 
   return (
     <div className="HomePage">
-      <header className="HomePage-header">
+      <header className="container">
           <h1>Welcome to CV Analyzer</h1>
           <p>
             Simplify your recruitment process with intelligent CV analysis.
           </p>
-         <button className="App-button" onClick={() => {navigate("/JobDescription");}}>
+         <button className="App-button-blue" onClick={() => {navigate("/JobDescription");}}>
             Get Started
           </button>
         </header>

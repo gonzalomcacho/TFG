@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './JobDescriptionUpload.css';
 
 function JobDescriptionUpload({ onFileSelect }) {
   const [selectedJobDescription, setselectedJobDescription] = useState(null);
@@ -12,19 +11,19 @@ function JobDescriptionUpload({ onFileSelect }) {
   };
 
   return (
-    <div className="JobDescriptionUpload-container">
+    <div className="container">
       <div className="JobDescriptionUpload-instructions">
         <h2>Job Description Upload</h2>
         <p>Please upload the job description in PDF format. Click the button below and select the file to upload.</p>
       </div>
       <div className="JobDescriptionUpload-input">
-        <label htmlFor="jd-upload" className="JobDescriptionUpload-label">
+        <label htmlFor="jd-upload" className="label">
           {selectedJobDescription ? "Change file" : "Select file"}
         </label>
         <input id="jd-upload" type="file" onChange={handleFileChange} accept=".pdf" style={{ display: 'none' }} />
-        {selectedJobDescription && <p className="JobDescriptionUpload-feedback">File selected: {selectedJobDescription.name}</p>}
+        {selectedJobDescription && <p >File selected: {selectedJobDescription.name}</p>}
       </div>
-      {selectedJobDescription && (<button className="JobDescriptionUpload-keepgoing-button" onClick={() => {navigate("/CvUpload");}}>Keep going</button>)}
+      {selectedJobDescription && (<button className="App-button-green" onClick={() => {navigate("/CvUpload");}}>Keep going</button>)}
     </div>
   );
 }

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './CvUpload.css';
 
 function CvUpload({ onFileSelect }) {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -18,18 +17,18 @@ function CvUpload({ onFileSelect }) {
   };
 
   return (
-    <div className="CvUpload-container">
+    <div className="container">
       <div className="CvUpload-instructions">
         <h2>CV Upload</h2>
         <p>Please upload your CV in PDF format. Click the button below and select the file to upload.</p>
       </div>
       <div className="CvUpload-input">
-        <label htmlFor="file-upload" className="CvUpload-label">
+        <label htmlFor="file-upload" className="label">
           {selectedFile ? "Change file" : "Select file"}
         </label>
         <input id="file-upload" type="file" onChange={handleFileChange} accept=".pdf" style={{ display: 'none' }} />
-        {selectedFile && <p className="CvUpload-feedback">File selected: {selectedFile.name}</p>}
-        {selectedFile && (<button className="CvUpload-analyze-button" onClick={analyzeCV}>Analyze CV</button>)}
+        {selectedFile && <p>File selected: {selectedFile.name}</p>}
+        {selectedFile && (<button className="App-button-green" onClick={analyzeCV}>Analyze CV</button>)}
       </div>
     </div>
   );

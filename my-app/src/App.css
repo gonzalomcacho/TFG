@@ -1,12 +1,12 @@
 .App {
   text-align: center;
-  color: #ffffff; /* white text for better contrast on the blue background */
+  color: #ffffff; 
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url('../public/blue_background.jpg'); /* your blue background image */
+  background-image: url('../public/blue_background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -15,14 +15,79 @@
 h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
-  color: #4657b8; /* a color that complements the background */
+  color: #4657b8;
+}
+
+h2 {
+  color: #4657b8; /* color that complements the background */
+  margin-bottom: 0.5rem;
 }
 
 p {
   font-size: 1.25rem;
   margin-bottom: 2rem;
-  color: #4657b8; /* same as h1 for consistency */
+  color: #4657b8;
 }
 
+.container {
+  background-color: rgba(255, 255, 255, 0.8); /* semi-transparent white */
+  color: #17252a; /* very dark blue text */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* softer shadow */
+  backdrop-filter: blur(5px); /* frosted glass effect */
+  width: 80%; /* adjust the width as needed */
+  max-width: 600px; /* or any max-width you prefer */
+  margin: auto;
+}
 
+.App-button-blue {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  background-color: #2f6cc0; /* blue background for the button */
+  color: #d3e4f7; /* lighter blue text to match the background */
+  border: 2px solid #0e59a9; /* blue border to stand out */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
 
+.App-button-blue:hover {
+  /*margin: 1rem;* TO MAKE IT BOUNCY/
+  background-color: #007bff; /* blue background on hover */
+  color: #ffffff; /* white text on hover */
+  border-color: #0056b3; /* darker blue border on hover */
+}
+
+.App-button-green{
+  margin: 1rem;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  background-color: #4CAF50; /* green background for the analyze button */
+  color: #ffffff; /* white text for contrast */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 1rem; /* adds space between the file selection feedback and the button */
+}
+
+.App-button-green:hover {
+  background-color: #45a049; /* darker green on hover */
+}
+
+.label {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  color: #ffffff;
+  background-color: #4657b8; /* complementary blue */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.label:hover {
+  background-color: #2f6cc0;
+}
