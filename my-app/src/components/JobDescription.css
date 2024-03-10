@@ -1,0 +1,27 @@
+.JobDescription-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 2rem;
+    margin: auto;
+    max-width: 600px;
+  }
+
+  .JobDescription-container h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #4657b8; /* a color that complements the background */
+  }
+  .options-container button {
+    margin: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #4CAF50; /* Adjust colors as per your theme */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .options-container button:hover {
+    background-color: #45a049;
+  }
+  

@@ -12,7 +12,7 @@ export default function HomePageScreen() {
           <p>
             Simplify your recruitment process with intelligent CV analysis.
           </p>
-         <button className="App-button" onClick={() => {navigate("/FileUpload");}}>
+         <button className="App-button" onClick={() => {navigate("/JobDescription");}}>
             Get Started
           </button>
         </header>

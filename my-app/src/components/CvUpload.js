@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import './FileUpload.css';
+import './CvUpload.css';
 
-function FileUpload({ onFileSelect }) {
+function CvUpload({ onFileSelect }) {
   const [selectedFile, setSelectedFile] = useState(null);
-
+//Create a way to archive files?
+  
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     setSelectedFile(file);
@@ -17,21 +18,21 @@ function FileUpload({ onFileSelect }) {
   };
 
   return (
-    <div className="FileUpload-container">
-      <div className="FileUpload-instructions">
+    <div className="CvUpload-container">
+      <div className="CvUpload-instructions">
         <h2>CV Upload</h2>
         <p>Please upload your CV in PDF format. Click the button below and select the file to upload.</p>
       </div>
-      <div className="FileUpload-input">
-        <label htmlFor="file-upload" className="FileUpload-label">
+      <div className="CvUpload-input">
+        <label htmlFor="file-upload" className="CvUpload-label">
           {selectedFile ? "Change file" : "Select file"}
         </label>
         <input id="file-upload" type="file" onChange={handleFileChange} accept=".pdf" style={{ display: 'none' }} />
-        {selectedFile && <p className="FileUpload-feedback">File selected: {selectedFile.name}</p>}
-        {selectedFile && (<button className="FileUpload-analyze-button" onClick={analyzeCV}>Analyze CV</button>)}
+        {selectedFile && <p className="CvUpload-feedback">File selected: {selectedFile.name}</p>}
+        {selectedFile && (<button className="CvUpload-analyze-button" onClick={analyzeCV}>Analyze CV</button>)}
       </div>
     </div>
   );
 }
 
-export default FileUpload;
+export default CvUpload;

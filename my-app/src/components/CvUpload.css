@@ -1,4 +1,4 @@
-.FileUpload-container {
+.CvUpload-container {
     text-align: center;
     padding: 2rem;
     background-color: rgba(255, 255, 255, 0.9); /* semi-transparent white */
@@ -10,25 +10,25 @@
     max-width: 600px;
   }
   
-  .FileUpload-instructions {
+  .CvUpload-instructions {
     margin-bottom: 1rem;
   }
   
-  .FileUpload-instructions h2 {
+  .CvUpload-instructions h2 {
     color: #4657b8; /* color that complements the background */
     margin-bottom: 0.5rem;
   }
   
-  .FileUpload-instructions p {
+  .CvUpload-instructions p {
     color: #17252a; /* dark text for readability */
     font-size: 1rem;
   }
   
-  .FileUpload-input {
+  .CvUpload-input {
     position: relative;
   }
   
-  .FileUpload-label {
+  .CvUpload-label {
     display: inline-block;
     padding: 0.75rem 2rem;
     font-size: 1rem;
@@ -40,17 +40,17 @@
     transition: background-color 0.2s ease;
   }
   
-  .FileUpload-label:hover {
+  .CvUpload-label:hover {
     background-color: #2f6cc0;
   }
   
-  .FileUpload-feedback {
+  .CvUpload-feedback {
     margin-top: 1rem;
     color: #17252a; /* dark text for visibility */
     font-style: italic;
   }
 
-  .FileUpload-analyze-button {
+  .CvUpload-analyze-button {
     padding: 0.75rem 2rem;
     font-size: 1rem;
     background-color: #4CAF50; /* green background for the analyze button */
@@ -62,7 +62,7 @@
     margin-top: 1rem; /* adds space between the file selection feedback and the button */
   }
   
-  .FileUpload-analyze-button:hover {
+  .CvUpload-analyze-button:hover {
     background-color: #45a049; /* darker green on hover */
   }
   
