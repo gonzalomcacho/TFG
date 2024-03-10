@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# Plataforma Asistida por IA para la Optimización del Proceso de Selección de Personal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto, desarrollado como trabajo de fin de grado, presenta una plataforma basada en inteligencia artificial diseñada para asistir a los profesionales de recursos humanos en la optimización de sus procesos de selección de personal. Utilizando la API de OpenAI, esta aplicación proporciona herramientas avanzadas para la generación de descripciones de puestos, la elaboración de entrevistas y pruebas personalizadas, y la evaluación automatizada de currículos.
 
-## Available Scripts
+## Características Clave
 
-In the project directory, you can run:
+- **Evaluación Automatizada de CVs**: Extrae información clave de los CVs para asignar puntuaciones y seleccionar los mejores candidatos previo a la entrevista.
+- **Generación de Descripciones de Puestos**: Implementa un formulario interactivo para ingresar detalles clave del puesto, utilizando la API de OpenAI para generar automáticamente descripciones de trabajo coherentes y atractivas.
+- **Elaboración de Entrevistas y Pruebas**: Desarrolla un sistema que analiza la descripción del puesto y genera preguntas de entrevista y pruebas específicas, permitiendo personalización y adición de preguntas.
+- **Adaptación para los Solicitantes**: Analiza automáticamente los currículos de los solicitantes y alinea las preguntas de la entrevista y las pruebas con las habilidades y experiencia del candidato.
+- **Ranking Multivariable y Evaluación de Usuarios**: Implementa un sistema de puntuación multivariable y facilita el feedback a los candidatos.
+
+## Empezando con el Proyecto
+
+Este proyecto se inició con [Create React App](https://github.com/facebook/create-react-app). A continuación, se detallan algunos comandos útiles que puedes utilizar en el directorio del proyecto:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Ejecuta la aplicación en modo de desarrollo. Abre [http://localhost:3000](http://localhost:3000) para verla en tu navegador.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Inicia el ejecutor de pruebas en el modo de observación interactivo.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Construye la aplicación para la producción en la carpeta `build`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Más Información
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Para aprender más sobre React, consulta la [documentación de React](https://reactjs.org/).
+- [Documentación de Create React App](https://facebook.github.io/create-react-app/docs/getting-started).
 
-### `npm run eject`
+## Despliegue
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Consulta la sección sobre [despliegue](https://facebook.github.io/create-react-app/docs/deployment) para obtener más información sobre cómo llevar tu aplicación a producción.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Este proyecto combina la potencia de la inteligencia artificial a través de la API de OpenAI con las modernas tecnologías de desarrollo web de React para crear una herramienta innovadora en el campo de los recursos humanos. Con un enfoque en la seguridad y privacidad de la información, nuestra plataforma busca revolucionar la forma en que se llevan a cabo los procesos de selección de personal.
