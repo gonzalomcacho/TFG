@@ -95,10 +95,24 @@ p {
 }
 
 .JobDescriptionQuestionnaire-form input,
-.JobDescriptionQuestionnaire-form textarea {
+.textarea {
   width: 100%;
   padding: 0.5rem;
   margin-top: 0.5rem;
   border-radius: 5px;
   border: 1px solid #ccc;
+}
+
+.description-section {
+  text-align: justify; /* This justifies the text within the section */
+  text-justify: inter-word; /* Improves spacing between words */
+}
+
+.description-title {
+  text-align: left; /* Ensures titles are left-aligned */
+}
+
+.description-content p, .description-content li {
+  text-align: justify;
+  text-justify: inter-word;
 }

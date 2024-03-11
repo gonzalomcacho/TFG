@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
-function CvUpload({ onFileSelect }) {
+
+function CvUpload() {
+  const location = useLocation();
+  const sections = location.state?.sections;
   const [selectedFile, setSelectedFile] = useState(null);
 //Create a way to archive files?
   
@@ -11,9 +15,8 @@ function CvUpload({ onFileSelect }) {
 
   const analyzeCV = () => {
     // Your logic to analyze the CV goes here
+    console.log('Job Description received:', sections);
     console.log('Analyzing the CV:', selectedFile.name);
-    // You might call a backend service with the file
-    // or perform some client-side analysis depending on your requirements
   };
 
   return (

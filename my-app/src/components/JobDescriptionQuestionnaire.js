@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function JobDescriptionQuestionnaire({ onSubmit }) {
+function JobDescriptionQuestionnaire() {
   const [answers, setAnswers] = useState({
     companyName: '',
     role: '',
@@ -41,6 +41,7 @@ function JobDescriptionQuestionnaire({ onSubmit }) {
         Company Name: (100 characters max)              
         <textarea
           name="companyName"
+          className="textarea"
           value={answers.companyName}
           onChange={(e) => {
             handleChange(e);
@@ -56,6 +57,7 @@ function JobDescriptionQuestionnaire({ onSubmit }) {
         <textarea
           name="role"
           value={answers.role}
+          className="textarea"
           onChange={(e) => {
             handleChange(e);
             autoResizeTextarea(e);
@@ -69,6 +71,7 @@ function JobDescriptionQuestionnaire({ onSubmit }) {
           Responsibilities: (1.000 characters max)        
         <textarea
           name="responsibilities"
+          className="textarea"
           value={answers.responsibilities}
           onChange={(e) => {
             handleChange(e);
@@ -83,6 +86,7 @@ function JobDescriptionQuestionnaire({ onSubmit }) {
           Qualifications: (1.000 characters max)              
         <textarea
           name="qualifications"
+          className="textarea"
           value={answers.qualifications}
           onChange={(e) => {
             handleChange(e);
