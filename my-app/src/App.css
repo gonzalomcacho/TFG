@@ -1,16 +1,18 @@
 .App {
   text-align: center;
   color: #ffffff; 
-  height: 100vh;
+  min-height: 100vh; /* changed from height to min-height */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content:center; /* changed from center to flex-start */
   align-items: center;
   background-image: url('../public/blue_background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
+
 
 h1 {
   font-size: 3rem;
@@ -39,8 +41,6 @@ p {
   width: 80%; /* adjust the width as needed */
   max-width: 600px; /* or any max-width you prefer */
   margin: auto;
-  overflow-y: auto; /* Makes content scrollable vertically */
-  max-height: 100vh;
 }
 
 .App-button-blue {
