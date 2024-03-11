@@ -4,7 +4,7 @@
   min-height: 100vh; /* changed from height to min-height */
   display: flex;
   flex-direction: column;
-  justify-content:center; /* changed from center to flex-start */
+  justify-content:center; 
   align-items: center;
   background-image: url('../public/blue_background.jpg');
   background-size: cover;
