@@ -7,6 +7,7 @@ import NoMatch from "./components/NoMatch.js";
 import HomePageScreen from "./components/HomePageScreen";
 import JobDescription from "./components/JobDescription";
 import JobDescriptionUpload from "./components/JobDescriptionUpload";
+import JobDescriptionQuestionnaire from "./components/JobDescriptionQuestionnaire";
 import CvUpload from "./components/CvUpload";
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePageScreen/>} />
             <Route path="/JobDescription" element={<JobDescription/>} />
-            <Route path="/JobDescriptionUpload" element={<JobDescriptionUpload/>} />
+            <Route path="/JobDescription/upload" element={<JobDescriptionUpload/>} />
+            <Route path="/JobDescription/questionnaire" element={<JobDescriptionQuestionnaire/>} />
             <Route path="/CvUpload" element={<CvUpload/>} />
             <Route path="*" element={<NoMatch />} />
           </Routes>

@@ -39,6 +39,8 @@ p {
   width: 80%; /* adjust the width as needed */
   max-width: 600px; /* or any max-width you prefer */
   margin: auto;
+  overflow-y: auto; /* Makes content scrollable vertically */
+  max-height: 100vh;
 }
 
 .App-button-blue {
@@ -90,4 +92,13 @@ p {
 
 .label:hover {
   background-color: #2f6cc0;
+}
+
+.JobDescriptionQuestionnaire-form input,
+.JobDescriptionQuestionnaire-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
