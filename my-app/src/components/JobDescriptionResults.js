@@ -1,83 +1,157 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react"; // Importa React y hooks para gestionar estados, efectos secundarios y referencias.
+import { useNavigate } from "react-router-dom"; // Importa `useNavigate` para navegación.
 
-function JobDescriptionResults() {
-  const navigate = useNavigate();
-  const [isEditing, setIsEditing] = useState(false);
-  const [description, setDescription] = useState(
-    `Company Name: 
-Apple
+/**
+ * Componente: JobDescriptionResults
+ * Propósito: Mostrar la descripción de trabajo generada y permitir su edición.
+ * Qué hace:
+ * - Presenta una descripción generada automáticamente.
+ * - Permite al usuario editar los detalles de la descripción.
+ * - Proporciona opciones para confirmar ediciones o subir CVs relacionados.
+ * - Muestra un mensaje de error si no se reciben datos válidos.
+ */
 
-Role: 
-Computer Engineer
+export default function JobDescriptionResults() {
+  const navigate = useNavigate(); // Hook para navegar entre rutas en la aplicación.
 
-Brief description:
- We are looking for a Computer Engineer to join our team and support our organization’s computer networks along with our Information Technology (IT) department. Computer Engineer responsibilities include designing, testing, and inspecting all software used within an organization’s computer system. Ultimately, you will be responsible for upgrading various types of hardware like routers and motherboards as needed.
-
-Responsibilities:
-Conduct validation testing for new and renovated motherboards
-Ensure existing computer equipment are up-to-date
-Stay up-to-date with the latest technologies and incorporate new technology into existing units
-Draft new computer equipment blueprints and present them to management
-Plan and manage the production of computer hardware equipment
-
-Qualifications:
-Proven work experience as a Computer Engineer or similar role
-Strong knowledge of design analytics, algorithms, and measuring tools
-Excellent verbal and written communication skills
-A creative thinker with good analytical abilities
-Proficient in problem-solving to resolve issues in a timely manner
-Bachelor’s degree in computer engineering or computer science training preferred`
-  );
+  const [description, setDescription] = useState(null); // Estado que almacena la descripción actual.
+  const [isEditing, setIsEditing] = useState(false); // Estado que controla si el modo edición está activado.
+  const [draftDescription, setDraftDescription] = useState(null); // Estado para cambios temporales en la descripción.
+  const [error, setError] = useState(null); // Estado para almacenar errores en caso de datos faltantes.
 
 
-  const sections = description.split('\n\n').map((section, index) => {
-    const [title, ...contentLines] = section.split('\n');
-    return { title, content: contentLines };
-  });
-  
+  useEffect(() => {
+    try {
+      const storedDescription = localStorage.getItem("jobDescriptionAIResponse");
+      if (storedDescription) {
+        const parsedDescription = JSON.parse(storedDescription);
+        setDescription(parsedDescription);
+        setDraftDescription(parsedDescription);
+      } else {
+        setError("No job description found in localStorage.");
+      }
+    } catch (err) {
+      setError("Failed to load job description from localStorage.");
+    }
+  }, []);
 
-  const DescriptionSection = ({ title, content }) => (
-    <div className="description-section">
-      <h3 className="description-title">{title}</h3>
-      <ul className="description-content">
-        {content.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
-    </div>
-  );
-  
 
+
+  if (error) {
+    return (
+      <div className="container">
+        <h2>Error</h2>
+        <p>{error}</p>
+        <button className="button button-blue" onClick={() => navigate(-1)}>Go Back</button>
+      </div>
+    );
+  }
+
+  /**
+   * handleEditToggle
+   * Llamada por: Botón "Edit" o "Cancel".
+   * Input: Ninguno.
+   * Output: Alterna entre los modos de edición y visualización.
+   */
   const handleEditToggle = () => {
+    if (isEditing) setDraftDescription(description);
     setIsEditing(!isEditing);
   };
 
-  const handleDescriptionChange = (event) => {
-    setDescription(event.target.value);
+  /**
+   * handleDescriptionChange
+   * Llamada por: Cambios en los campos de entrada en modo edición.
+   * Input: Nombre del campo modificado y su nuevo valor.
+   * Output: Actualiza `draftDescription` con los cambios realizados.
+   */
+  const handleDescriptionChange = (field, value) => {
+    setDraftDescription((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleConfirm = () => {
-    console.log(sections);
-    setIsEditing(false); 
-    console.log('Description confirmed:', description);
-    navigate("/CvUpload", { state: { sections } });
+  /**
+   * handleConfirmChanges
+   * Llamada por: Botón "Save Changes".
+   * Input: Ninguno.
+   * Output: Guarda los cambios en `description` y desactiva el modo edición.
+   */
+  const handleConfirmChanges = () => {
+    setDescription(draftDescription);
+    setIsEditing(false);
+  };
+
+  /**
+   * handleUploadCVs
+   * Llamada por: Botón "Upload Multiple CVs".
+   * Input: Ninguno.
+   * Output: Navega a la página de subida de CVs con la descripción generada.
+   */
+  const handleUploadCVs = () => {
+    const jobDescriptionText = `
+      Company Name: ${description.companyName}
+      Role: ${description.role}
+      Brief Description: ${description.briefDescription}
+      Responsibilities: ${description.responsibilities.join("\n")}
+      Qualifications: ${description.qualifications.join("\n")}
+    `.trim();
+
+    localStorage.setItem("jobDescriptionTextForAI", jobDescriptionText);      // Guardar en localStorage
+    console.log("Navigating to /CVMultiUpload with jobDescription stored in localStorage.");
+    navigate("/CVMultiUpload");
+
   };
 
   return (
     <div className="container">
-      <h2>Generated Job Description</h2>
-      {isEditing ? (
-        <textarea className="textarea" value={description} onChange={handleDescriptionChange} maxLength="10000" style={{resize: 'none', height: '500px' }}/>
+      {!description ? (
+        <div className="loading-text">
+          <h2>Loading...</h2>
+          <p className="loading-text">Creating job description, please wait...</p>
+        </div>
       ) : (
-        sections.map((section, index) => (
-          <DescriptionSection key={index} title={section.title} content={section.content} />
-        ))
+        <>
+          <h2>Generated Job Description</h2>
+          {isEditing ? (
+            <div>
+              <h3>Company Name</h3>
+              <input type="text" className="input" value={draftDescription.companyName} onChange={(e) => handleDescriptionChange("companyName", e.target.value)} />
+              <h3>Role</h3>
+              <input type="text" className="input" value={draftDescription.role} onChange={(e) => handleDescriptionChange("role", e.target.value)} />
+              <h3>Brief Description</h3>
+              <textarea className="textarea" value={draftDescription.briefDescription} onChange={(e) => handleDescriptionChange("briefDescription", e.target.value)} />
+              <h3>Responsibilities</h3>
+              <textarea className="textarea" value={draftDescription.responsibilities.join("\n")} onChange={(e) => handleDescriptionChange("responsibilities", e.target.value.split("\n"))} />
+              <h3>Qualifications</h3>
+              <textarea className="textarea" value={draftDescription.qualifications.join("\n")} onChange={(e) => handleDescriptionChange("qualifications", e.target.value.split("\n"))} />
+            </div>
+          ) : (
+            <div>
+              <h3>Company Name</h3>
+              <p>{description.companyName}</p>
+              <h3>Role</h3>
+              <p>{description.role}</p>
+              <h3>Brief Description</h3>
+              <p>{description.briefDescription}</p>
+              <h3>Responsibilities</h3>
+              <ul>{description.responsibilities.map((item, index) => (<li key={index}>{item}</li>))}</ul>
+              <h3>Qualifications</h3>
+              <ul>{description.qualifications.map((item, index) => (<li key={index}>{item}</li>))}</ul>
+            </div>
+          )}
+          <div className="button-container">
+            {isEditing ? (
+              <>
+                <button className="button button-red" onClick={handleEditToggle}>Cancel</button>
+                <button className="button button-green" onClick={handleConfirmChanges}>Save Changes</button>
+              </>
+            ) : (
+              <>
+                <button className="button button-green" onClick={handleEditToggle}>Edit</button>
+                <button className="button button-blue" onClick={handleUploadCVs}>Upload Multiple CVs</button>
+              </>
+            )}
+          </div>
+        </>
       )}
-      <button className="App-button-blue" onClick={handleEditToggle}> {isEditing ? 'Stop Editing' : 'Edit'} </button>
-      <button className="App-button-green" onClick={handleConfirm}> Confirm </button>
     </div>
   );
 }
-
-export default JobDescriptionResults;
