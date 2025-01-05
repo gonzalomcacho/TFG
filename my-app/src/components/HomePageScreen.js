@@ -9,8 +9,7 @@ export default function HomePageScreen() {
       <header className="container">
           <h1>Welcome to CV Analyzer</h1>
           <p>
-            Simplify your recruitment process with intelligent CV analysis.
-          </p>
+ QUIERO VER SI ESTO FUNCIONA           </p>
          <button className="App-button-blue" onClick={() => {navigate("/JobDescription");}}>
             Get Started
           </button>
