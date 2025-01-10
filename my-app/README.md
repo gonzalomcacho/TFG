@@ -18,22 +18,9 @@ Este proyecto se inició con [Create React App](https://github.com/facebook/crea
 
 Ejecuta la aplicación en modo de desarrollo. Abre [http://localhost:3000](http://localhost:3000) para verla en tu navegador.
 
-### `npm test`
+### `python -m uvicorn main:app --reload`
 
-Inicia el ejecutor de pruebas en el modo de observación interactivo.
-
-### `npm run build`
-
-Construye la aplicación para la producción en la carpeta `build`.
-
-## Más Información
-
-- Para aprender más sobre React, consulta la [documentación de React](https://reactjs.org/).
-- [Documentación de Create React App](https://facebook.github.io/create-react-app/docs/getting-started).
-
-## Despliegue
-
-Consulta la sección sobre [despliegue](https://facebook.github.io/create-react-app/docs/deployment) para obtener más información sobre cómo llevar tu aplicación a producción.
+Ejecuta la API programada en Python en [http://127.0.0.1:8000]
 
 ---
 
